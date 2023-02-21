@@ -5,10 +5,10 @@
 }
 
 header{
-    background-color: gray;
+    /* background-color: gray; */
     width: 90vw;
-    height: 80vh;
-    margin:20px 10%; 
+    min-height:min-content;
+    margin:2% 2%; 
     padding: .5rem;
 }
 nav{
@@ -24,24 +24,54 @@ nav{
     padding:5px;
     text-decoration: none;
 }
-a[href="#"]{
-    background-color: rgb(223, 93, 93);
-    color: rgb(253, 248, 248);
+main{
+    width: 90vw;
+    min-height:min-content;
+    margin:2% 2%; 
+    padding: .5rem;
 }
+.titulo{
+    background-color: white;
+    text-align: center;
+    border: 2px solid black;
+    margin:-20px 10% 20px 10%;
+    font-size:4vh;
+}
+
 .logo{
-    width: 1%;    
-    height: 1%;
+    width: 80%;    
+    height: 80%;
 }
-.card{
-    display: flex;
+.checkboxs{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: flex-start; */
+    /* align-items:center; */
+    margin:5% 5%;
+}
+.cards{
+    display: block;
     justify-content: center;
 }
 footer{
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-content: flex-start;
+    margin:5% 5%;
+
 }
-footer>a>img{
-    width: 5px;
-    height: 10%;
+.diva{
+    display: flex;
+    justify-content: flex-start;
+    padding: 2%;
+}
+.redes{
+    width: 40px;
+    height: 40px;
+}
+.cohort{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 2%;
 }

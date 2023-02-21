@@ -57,7 +57,8 @@ footer{
     display: flex;
     justify-content: space-between;
     align-content: flex-start;
-    margin:5% 5%;
+    align-items: flex-start;
+    margin:2% 8%;
 
 }
 .diva{
@@ -99,4 +100,25 @@ fieldset{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+/* MEDIA QUERYS */
+@media screen and (max-width: 425px) {
+    main{
+        background-color: rgb(43, 70, 226);
+    }
+}
+@media screen and (max-width: 320px) {
+    main{
+        background-color: rgb(43, 189, 226);
+        /* width: 90vw;
+        max-width: 320px;
+        min-height:300px;
+        margin:10% 10%; 
+        padding: .5rem; */
+    }
+    /* fieldset{
+        margin:10px 2%;
+        border:none;
+        align-items: center;
+    } */
 }

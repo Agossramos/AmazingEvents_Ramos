@@ -26,7 +26,7 @@ nav{
 }
 main{
     width: 90vw;
-    min-height:min-content;
+    min-height:300px;
     margin:2% 2%; 
     padding: .5rem;
 }
@@ -74,4 +74,17 @@ footer{
     justify-content: flex-end;
     align-items: flex-end;
     padding: 2%;
+}
+form{
+    margin:30px 15%; 
+    display: block;
+
+}
+form>fieldset>label{
+    display: block;
+}
+fieldset{
+    margin:10px 2%;
+    border:none;
+    align-items: center;
 }

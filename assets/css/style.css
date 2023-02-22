@@ -5,7 +5,6 @@
 }
 
 header {
-    /* background-color: gray; */
     width: 90vw;
     min-height: min-content;
     margin: 2% 2%;
@@ -38,8 +37,13 @@ main {
     background-color: white;
     text-align: center;
     border: 2px solid black;
-    margin: -20px 10% 20px 10%;
+    margin: -20px 10% 50px 10%;
     font-size: 4vh;
+}
+h3{
+    display: flex;
+    justify-content: center;
+    margin: 5%;
 }
 
 .logo {
@@ -48,10 +52,6 @@ main {
 }
 
 .checkboxs {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: flex-start; */
-    /* align-items:center; */
     margin: 5% 5%;
 }
 

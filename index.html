@@ -49,8 +49,8 @@
     </header>
     <main>
         <!-- CARROUSEL -->
-        <div id="carouselExampleFade" class="carousel slide carousel-fade m-30">
-            <div class="carousel-inner"  style="height: 150px;" >
+        <div id="carouselExampleFade" class="carousel slide carousel-fade m-30 d-block">
+            <div class="carousel-inner" style="height: 150px;">
                 <div class="carousel-item active">
                     <img src="assets/img/Cinema.jpg" class="d-block w-100" alt="...">
                 </div>
@@ -81,83 +81,122 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <section class="titulo">
+        <!-- <section class="titulo">
             <h3>Home</h3>
-        </section>
+        </section> -->
         <!-- Checkbox -->
-        <div class="checkboxs">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                <label class="form-check-label" for="flexCheckDefault">
-                    Category
-                </label>
+        <div class="categorysearch">
+            <div class="checkboxs">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Category
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Category
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Category
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Category
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Category
+                    </label>
+                </div>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                    Category
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Category
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Category
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Category
-                </label>
-            </div>
+            <!-- Buscador -->
+            <form class="d-flex m-1" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
         </div>
-        <!-- Buscador -->
+        <!-- Buscador
         <form class="d-flex m-1" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-        <!--Cards-->
-        <div class="cards">
-            <div class="card p-3 m-2">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">descriptive text</p>
-                    <p class="card-price">Price</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+        </form> -->
+        <!-- CARDS -->
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <div class="card p-3 m-2">
+                        <img src="./assets/img/Cinema.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">descriptive text</p>
+                            <p class="card-price">Price</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="card p-3 m-2">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">descriptive text</p>
-                    <p class="card-price">Price</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="col">
+                    <div class="card p-3 m-2">
+                        <img src="./assets/img/Costume_Party.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">descriptive text</p>
+                            <p class="card-price">Price</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="card p-3 m-2">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">descriptive text</p>
-                    <p class="card-price">Price</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="col">
+                    <div class="card p-3 m-2">
+                        <img src="./assets/img/Food_Fair.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">descriptive text</p>
+                            <p class="card-price">Price</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="card p-3 m-2">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">descriptive text.</p>
-                    <p class="card-price">Price</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="col">
+                    <div class="card p-3 m-2">
+                        <img src="./assets/img/Marathon.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">descriptive text.</p>
+                            <p class="card-price">Price</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-3 m-2">
+                        <img src="./assets/img/Museum_Tour.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">descriptive text.</p>
+                            <p class="card-price">Price</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-3 m-2">
+                        <img src="./assets/img/Music_Concert.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">descriptive text.</p>
+                            <p class="card-price">Price</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

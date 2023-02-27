@@ -24,14 +24,18 @@ nav {
 }
 main {
     width: 90vw;
-    min-height: 300px;
+    min-height: 200px;
     margin: 2% 2%;
     padding: 0.5rem;
 }
+.conteiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .categorysearch{
     display: block;
-    /* justify-content: space-around;
-    align-items: center; */
 }
 .logo {
     width: 80%;
@@ -43,6 +47,18 @@ main {
 .cards {
     display: block;
     justify-content: center;
+}
+.card-img-top{
+    width: 100%;
+    max-height: 70px;
+    object-fit: cover;
+}
+#imgDetails{
+    height: 100%;
+    width: 100%;
+}
+#fotocarddetails{
+    min-width: 100%;
 }
 footer {
     display: flex;
@@ -67,7 +83,7 @@ footer {
     padding: 2%;
 }
 form {
-    margin: 30px 15%;
+    margin: 10px 5%;
     display: block;
 }
 form>fieldset>label {
@@ -100,13 +116,9 @@ fieldset {
         font-size: 4vh;
     }
     main {
-        background-color: rgb(184, 196, 29);
+        background-color: rgb(253, 203, 242);
         width: 95vw;
-    }
-    .categorysearch{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+        min-height: 900px;
     }
     footer {
         margin: 2% 3%;
@@ -119,6 +131,19 @@ fieldset {
         width: 100px;
         height: 43px;
     }
+    #carddetails{
+        margin:20px 4px;
+        min-width: 60%;
+        min-height: 600%;
+    }
+    form {
+        margin: 10px 15%;
+        display: block;
+    }
+    .carousel-inner{
+        max-height: 520px;
+        object-fit: cover;
+    }
 }
 @media screen and (max-width: 1025px) {
     header {
@@ -129,13 +154,13 @@ fieldset {
         font-size: 4vh;
     }
     main {
-        background-color: rgb(226, 43, 211);
+        background-color: rgb(253, 203, 242);
         width: 95vw;
+        min-height: 800px;
     }
-    .categorysearch{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+    form {
+        margin: 10px 15%;
+        display: block;
     }
     footer {
         margin: 2% 3%;
@@ -148,6 +173,10 @@ fieldset {
         width: 90px;
         height: 43px;
     }
+    .carousel-inner{
+        max-height: 400px;
+        object-fit: cover;
+    }
 }
 @media screen and (max-width: 769px) {
     header {
@@ -158,40 +187,68 @@ fieldset {
         font-size: 4vh;
     }
     main {
-        background-color: rgb(80, 226, 43);
+        background-color: rgb(253, 203, 242);
         width: 95vw;
+        min-height: 600px;
+    }
+    #imgDetails{
+        height: 100%;
+        width: 150%;
+    }
+    .carousel-inner{
+        max-height: 300px;
+        object-fit: cover;
+    }
+    form {
+        margin: 10px 15%;
+        display: block;
     }
     footer {
         margin: 2% 3%;
     }
-
     fieldset {
         margin: 20px 30%;
         align-items: center;
     }
 }
+
 @media screen and (max-width: 426px) {
     header {
         width: 95vw;
     }
-
     main {
-        background-color: rgb(43, 70, 226);
+        background-color: rgb(253, 203, 242);
         width: 95vw;
+        min-height: 400px;
     }
-
+    form {
+        margin: 10px 15%;
+        display: block;
+    }
     footer {
         margin: 2% 4%;
     }
-
     fieldset {
         margin: 20px 15%;
         align-items: center;
     }
+    #imgDetails{
+        height: 100%;
+        width: 200%;
+    }
+    .carousel-inner{
+        max-height: 150px;
+        object-fit: cover;
+    }
 }
-
 @media screen and (max-width: 321px) {
     main {
-        background-color: rgb(43, 189, 226);
+        background-color: rgb(253, 203, 242);
+        min-height: 400px;
+        
+    }
+    .carousel-inner{
+        max-height: 130px;
+        object-fit: cover;
     }
 }

@@ -47,6 +47,7 @@ main {
 .cards {
     display: block;
     justify-content: center;
+    
 }
 .card-img-top{
     width: 100%;
@@ -107,6 +108,55 @@ fieldset {
 }
 
 /* MEDIA QUERYS */
+@media screen and (max-width: 2561px) {
+    header {
+        width: 96vw;
+    }
+    .titulo {
+        margin: -20px 20% 20px 10%;
+        font-size: 4vh;
+    }
+    main {
+        background-color: rgb(253, 203, 242);
+        width: 95vw;
+        min-height: 900px;
+    }
+    #cards {
+        display: block;
+        justify-content: center;
+        height: 350px;
+        width: 300px;
+    } 
+    .card-img-top{
+        width: 100%;
+        max-height: 120px;
+        object-fit: cover;
+    }
+    footer {
+        margin: 2% 3%;
+    }
+    fieldset {
+        margin: 20px 40%;
+        align-items: center;
+    }
+    #submit {
+        width: 100px;
+        height: 43px;
+    }
+    #carddetails{
+        margin:20px 4px;
+        min-width: 60%;
+        min-height: 600%;
+    }
+    form {
+        margin: 10px 15%;
+        display: block;
+    }
+    .carousel-inner{
+        max-height: 1000px;
+        object-fit: cover;
+    }
+}
 @media screen and (max-width: 1441px) {
     header {
         width: 96vw;
@@ -141,7 +191,7 @@ fieldset {
         display: block;
     }
     .carousel-inner{
-        max-height: 520px;
+        max-height: 560px;
         object-fit: cover;
     }
 }

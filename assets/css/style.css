@@ -32,6 +32,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap:20px;
 }
 
 .categorysearch{
@@ -45,12 +46,6 @@ main {
     margin: 5% 5%;
     display: flex;
     justify-content: center;
-}
-.containercards{
-    display: flex;
-    justify-content:center;
-    flex-wrap: wrap;
-    gap:20px;
 }
 
 #imgDetails{
@@ -144,7 +139,7 @@ fieldset {
         display: block;
     }
     .carousel-inner{
-        max-height: 1000px;
+        max-height: 850px;
         object-fit: cover;
     }
 }
@@ -182,7 +177,7 @@ fieldset {
         display: block;
     }
     .carousel-inner{
-        max-height: 560px;
+        max-height: 480px;
         object-fit: cover;
     }
 }
@@ -215,7 +210,7 @@ fieldset {
         height: 43px;
     }
     .carousel-inner{
-        max-height: 400px;
+        max-height: 340px;
         object-fit: cover;
     }
 }
@@ -237,7 +232,7 @@ fieldset {
         width: 150%;
     }
     .carousel-inner{
-        max-height: 300px;
+        max-height: 250px;
         object-fit: cover;
     }
     form {
@@ -278,7 +273,7 @@ fieldset {
         width: 200%;
     }
     .carousel-inner{
-        max-height: 150px;
+        max-height: 170px;
         object-fit: cover;
     }
 }

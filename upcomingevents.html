@@ -11,6 +11,7 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
     <header>
         <!-- NAVEGADOR -->
@@ -49,7 +50,7 @@
     <main>
         <!-- CARROUSEL -->
         <div id="carouselExampleFade" class="carousel slide carousel-fade m-30 d-block">
-            <div class="carousel-inner"  style="height: 50%;" >
+            <div class="carousel-inner" style="height: 50%;">
                 <div class="carousel-item active">
                     <img src="assets/img/Cinema.jpg" class="d-block w-100" alt="...">
                 </div>
@@ -83,35 +84,51 @@
         <div class="categorysearch">
             <!-- Checkbox -->
             <div class="checkboxs">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Category
-                    </label>
-            </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                    <label class="form-check-label" for="flexCheckDefault1">
-                        Category
-                    </label>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Food Fair
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                        <label class="form-check-label" for="flexCheckDefault1">
+                            Museum
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                        <label class="form-check-label" for="flexCheckDefault2">
+                            Costume Party
+                        </label>
+                    </div>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-                    <label class="form-check-label" for="flexCheckDefault2">
-                        Category
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-                    <label class="form-check-label" for="flexCheckDefault3">
-                        Category
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-                    <label class="form-check-label" for="flexCheckDefault4">
-                        Category
-                    </label>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                        <label class="form-check-label" for="flexCheckDefault3">
+                            Music Concert
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                        <label class="form-check-label" for="flexCheckDefault4">
+                            Race
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                        <label class="form-check-label" for="flexCheckDefault4">
+                            Book Exchange
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                        <label class="form-check-label" for="flexCheckDefault4">
+                            Cinema
+                        </label>
+                    </div>
                 </div>
             </div>
             <!-- Buscador -->
@@ -124,7 +141,9 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col">
-                    <div class="card p-3 m-2">
+                    <div id="cardUpcomingEvents">
+                    </div>
+                    <!-- <div class="card p-3 m-2">
                         <img src="./assets/img/Cinema.jpg" class="card-img-top" alt="Cinema">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -187,8 +206,8 @@
                                 <p class="card-price">Price</p>
                                 <a href="./details.html" class="btn btn-primary">Go somewhere</a>
                             </div>
-                        </div>
-                    </div>
+                        </div> -->
+                </div>
             </div>
         </div>
     </main>
@@ -206,6 +225,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+    <script type="module" src="./assets/js/amazing.js"></script>
+    <script type="module" src="./assets/js/upcomingevents.js"></script>
 </body>
 
 </html>

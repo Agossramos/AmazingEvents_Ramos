@@ -48,15 +48,11 @@ main {
 }
 .containercards{
     display: flex;
-    justify-content: center;
+    justify-content:center;
     flex-wrap: wrap;
     gap:20px;
 }
-.card-img-top{
-    /* width: 100%; */
-    max-height: 70px;
-    object-fit: cover;
-}
+
 #imgDetails{
     height: 100%;
     width: 100%;
@@ -127,17 +123,6 @@ fieldset {
         width: 95vw;
         min-height: 900px;
     }
-    /* #cards {
-        display: block;
-        justify-content: center;
-        height: 350px;
-        width: 300px;
-    } */
-    /* .card-img-top{
-        width: 100%;
-        max-height: 120px;
-        object-fit: cover;
-    }  */
     footer {
         margin: 2% 3%;
     }

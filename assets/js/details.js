@@ -1,4 +1,4 @@
-import data from "./amazing";
+import data from "./amazing.js";
 const divCardsDetails = document.getElementById("cardDetails");
 let fragmento = document.createDocumentFragment();
 function details(events) {
@@ -11,7 +11,7 @@ function details(events) {
                 <img id="imgDetails" src="${event.image}" class="img-fluid rounded-start"
                             alt="${event.category}">
             </div>
-            // <div class="col-md-8">
+            <div class="col-md-8">
             <div class="card-body">
                 <h5 class="card-title">"${event.name}</h5>
                 <p class="card-text">"${event.date}</p>

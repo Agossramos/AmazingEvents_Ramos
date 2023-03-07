@@ -1,5 +1,5 @@
-import data from "./amazing";
-const divCardsUpcomingEvents=document.getElementById ('cardUpcomingEvents');
+import data from "./amazing.js";
+const divCardsUpcomingEvents=document.getElementById('cardUpcomingEvents');
 let fragmento= document.createDocumentFragment();
 function upcomingEvents (events, date){
     for (let event of events){
@@ -11,12 +11,12 @@ function upcomingEvents (events, date){
         <div class="card-body">
             <h5 class="card-title">${event.name}</h5>
             <p class="card-text">${event.description}</p>
-            <p class="card-price">${event.price}</p>
-            <a href="./details.html" class="btn btn-primary">Go somewhere</a>
+            <p class="card-price">Price: ${event.price}</p>
+            <a href="./details.html" class="btn btn-primary">Details</a>
         </div>`;
         fragmento.appendChild(div);
         }
     }
     divCardsUpcomingEvents.appendChild(fragmento);
 }
-let cards=upcomingEvents(data.events, data,currentDate);
+let cards=upcomingEvents(data.events, data.currentDate);

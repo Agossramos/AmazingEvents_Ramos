@@ -1,22 +1,23 @@
 import data from "./amazing.js";
-const divCardsUpcomingEvents=document.getElementById('cardUpcomingEvents');
-let fragmento= document.createDocumentFragment();
+
+const CardsUpcomingEvents=document.getElementById('cardUpcomingEvents');
+let fragment= document.createDocumentFragment();
 function upcomingEvents (events, date){
     for (let event of events){
         if (event.date > date){
         let div=document.createElement('div');
-        div.classList='card p-3 m-2';
+        div.classList='card p-2 m-3 ';
         div.innerHTML=`
-        <img src="${event.image}" class="card-img-top" alt="${event.category}">
+        <img src="${event.image}" class="card-img-top" alt="${event.name}">
         <div class="card-body">
-            <h5 class="card-title">${event.name}</h5>
+            <h2 class="card-title"><strong>${event.name}</strong></h2>
             <p class="card-text">${event.description}</p>
-            <p class="card-price">Price: ${event.price}</p>
-            <a href="./details.html" class="btn btn-primary">Details</a>
+            <p class="card-price"><strong>Price: </strong> ${event.price}</p>
+            <a href="./details.html" class="btn btn-primary" id="botoncards">Details</a>
         </div>`;
-        fragmento.appendChild(div);
+        fragment.appendChild(div);
         }
     }
-    divCardsUpcomingEvents.appendChild(fragmento);
+    CardsUpcomingEvents.appendChild(fragment);
 }
 let cards=upcomingEvents(data.events, data.currentDate);

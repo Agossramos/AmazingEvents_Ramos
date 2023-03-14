@@ -83,70 +83,24 @@
         </div>
         <div class="categorysearch">
             <!-- Checkbox -->
-            <div class="checkboxs">
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                        <label class="form-check-label" for="flexCheckChecked">
-                            Food Fair
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-                        <label class="form-check-label" for="flexCheckDefault1">
-                            Museum
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-                        <label class="form-check-label" for="flexCheckDefault2">
-                            Costume Party
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-                        <label class="form-check-label" for="flexCheckDefault3">
-                            Music Concert
-                        </label>
-                    </div>
-                </div>
-                <div class="col">
-                    
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-                        <label class="form-check-label" for="flexCheckDefault4">
-                            Race
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5">
-                        <label class="form-check-label" for="flexCheckDefault5">
-                            Book Exchange
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault6">
-                        <label class="form-check-label" for="flexCheckDefault6">
-                            Cinema
-                        </label>
-                    </div>
-                </div>
-            </div>
+            <!-- <div id="checkContainer" class="checkboxs p-3 d-flex flex-wrap justify-content-center gap-3"></div> -->
+            <div id="checkContainer" class="checkboxs p-3 d-flex flex-wrap justify-content-center gap-3"></div>
             <!-- Buscador -->
             <form class="d-flex m-1" role="search" id="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input id="input" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit" id="buttonsearch">Search</button>
             </form>
         </div>
         <!-- CARDS -->
-        <div class="container text-center">
+        <div id="contenedor" class="p-3 d-flex flex-wrap justify-content-center gap-3"></div>
+        <!-- <div class="container text-center">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
                     <div class="cards" id="cardsHome">
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </main>
     <footer class="bg-body-tertiary">
         <!-- REDES SOCIALES -->
@@ -163,6 +117,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <script type="module" src="./assets/js/amazing.js"></script>
+    <script type="module" src="./assets/js/functions.js"></script>
     <script type="module" src="./assets/js/home.js"></script>
 </body>
 

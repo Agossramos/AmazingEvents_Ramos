@@ -1,4 +1,6 @@
 import data from "./amazing.js";
+import data from "./functions.js";
+
 const divCardsDetails = document.getElementById("cardDetails");
 let fragmento = document.createDocumentFragment();
 // function details(events) {

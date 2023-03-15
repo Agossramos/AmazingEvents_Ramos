@@ -5,13 +5,15 @@ const params = new URLSearchParams(queryString);
 const cardid = params.get("id");
 const card = data.events.find((card) => card._id == cardid);
 let detailContainer = document.querySelector("#cardDetails");
-console.log("holis");
+// console.log("holis");   
 createDetails(card, detailContainer);
 
-function createDetails(card, detailContainer) {
+function createDetails(card, container) {
   let cards = "";
-  console.log("antes bucle");
-  card.events.forEach((event) => {
+//   console.log("antes bucle");
+//  let array= card.events;
+  card.forEach((event) => {
+    // console.log("bucle");
     cards += `<img id="imgDetails" src="${event.image}" class="img-fluid rounded-start" alt="${event.category}">
                 <div class="card-body">
                     <h5 class="card-title">"${event.name}</h5>
@@ -24,7 +26,9 @@ function createDetails(card, detailContainer) {
                     <p class="card-text">"${event.price}</p>   
                 </div>`;
   });
-  detailContainer.innerHTML = cards;
+//   console.log("holis");
+container.innerHTML = cards;
+//   console.log("nnose");
 }
 
 // function details(events) {

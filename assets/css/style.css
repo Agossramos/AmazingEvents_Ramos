@@ -142,8 +142,8 @@ fieldset {
     align-items: center;
   }
   #submit {
-    width: 100px;
-    height: 43px;
+    width: 150px;
+    height: 90px;
   }
   #carddetails {
     margin: 20px 4px;
@@ -164,6 +164,10 @@ fieldset {
     background-color:darksalmon;
     color:black;
     border-color: darksalmon;
+  }
+  .redes {
+    width: 100px;
+    height: 100px;
   }
 }
 @media screen and (max-width: 1441px) {
@@ -194,6 +198,10 @@ fieldset {
   footer {
     margin: 2% 3%;
   }
+  .redes {
+    width: 70px;
+    height: 70px;
+  }
   .cohort {
     font-size: x-large;
   }
@@ -202,8 +210,8 @@ fieldset {
     align-items: center;
   }
   #submit {
-    width: 100px;
-    height: 43px;
+    width: 120px;
+    height: 70px;
   }
   #carddetails {
     margin: 20px 4px;
@@ -247,6 +255,10 @@ fieldset {
   }
   footer {
     margin: 2% 3%;
+  }
+  .redes {
+    width: 40px;
+    height: 40px;
   }
   fieldset {
     margin: 20px 35%;

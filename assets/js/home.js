@@ -50,8 +50,8 @@ function addCardsEvents(array) {
     return;
   }
   let cards = "";
-  array.events.forEach((event) => {
-    cards += `<div class="card text-bg-light mb-3" style="max-width: 30rem;">
+  array.events.forEach(event => {
+    cards += `<div class="card text-bg-light mb-3" style="max-width: 20rem;">
                 <img src="${event.image}" class="card-img-top mh-70 object-fit-cover" alt="${event.name}">
                 <div class="card-body text-center">
                 <h2 class="card-title"><strong>${event.name}</strong></h2>

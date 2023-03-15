@@ -60,7 +60,7 @@ function addCardsEvents(array,date) {
   let cards = "";
   array.events.forEach((event) => {
     if (event.date > date) {
-      cards += `<div class="card text-bg-light mb-3" style="max-width: 30rem;">
+      cards += `<div class="card text-bg-light mb-3" style="max-width: 20rem;">
                 <img src="${event.image}" class="card-img-top mh-70 object-fit-cover;
                 object-fit: cover;" alt="${event.name}">
                 <div class="card-body text-center">

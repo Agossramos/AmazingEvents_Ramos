@@ -57,7 +57,7 @@ main {
   border-color: black;
 }
 footer {
-   display: flex;
+  display: flex;
   align-content: flex-start;
   align-items: flex-start;
   justify-content: space-between;

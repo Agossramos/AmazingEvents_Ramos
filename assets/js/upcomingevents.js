@@ -4,30 +4,19 @@ const contenedor = document.getElementById("contenedor");
 const contenedorCheck = document.getElementById("checks");
 const input = document.querySelector("#input");
 let date= data.currentDate;
-// input.addEventListener("input", superFiltro);
 
-// contenedorCheck.addEventListener("change", superFiltro);
+input.addEventListener("input", superFiltro);
 
-addCardsEvents(data,date);
-createCheckBoxs(data);
+contenedorCheck.addEventListener("change", superFiltro);
 
-input.addEventListener("input", () => {
-  let primerFiltro = filterOfText(data, input.value);
-  // // let segundoFiltro = filterOfCategory(primerFiltro);
+addCardsEvents(data.events,date);
+createCheckBoxs(data.events);
+
+function superFiltro() {
+  let primerFiltro = filterOfText(data.events, input.value);
+  let segundoFiltro = filterOfCategory(primerFiltro);
   addCardsEvents(segundoFiltro,date);
-});
-
-contenedorCheck.addEventListener("change", () => {
-  //   let primerFiltro = filterOfText(data,input.value);
-  // // let segundoFiltro = filterOfCategory(primerFiltro);
-  //   addCardsEvents(segundoFiltro,date);
-});
-
-// function superFiltro() {
-//   let primerFiltro = filterOfText(data, input.value);
-//   let segundoFiltro = filterOfCategory(primerFiltro);
-//   addCardsEvents(segundoFiltro,date);
-// }
+}
 
 // function timeEvents(event,date){
 //       let time;
@@ -39,7 +28,7 @@ contenedorCheck.addEventListener("change", () => {
 //   }
 
 function createCheckBoxs(array) {
-  let arrayCountrys = array.events.map((event) => event.category);
+  let arrayCountrys = array.map((event) => event.category);
   let setCountry = new Set(arrayCountrys);
   let arrayChecks = Array.from(setCountry);
   let checkboxs = "";
@@ -52,13 +41,13 @@ function createCheckBoxs(array) {
   contenedorCheck.innerHTML = checkboxs;
 }
 
-function addCardsEvents(array,date) {
+function addCardsEvents(events,date) {
   if (array.length == 0) {
     contenedor.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
     return;
   }
   let cards = "";
-  array.events.forEach((event) => {
+  events.forEach((event) => {
     if (event.date > date) {
       cards += `<div class="card text-bg-light mb-3" style="max-width: 20rem;">
                 <img src="${event.image}" class="card-img-top mh-70 object-fit-cover;
@@ -75,8 +64,8 @@ function addCardsEvents(array,date) {
   contenedor.innerHTML = cards;
 }
 
-function filterOfText(array, text) {
-  let arrayFiltrado = array.events.filter((elemento) =>
+function filterOfText(events, text) {
+  let arrayFiltrado = events.filter((elemento) =>
     elemento.name.toLowerCase().includes(text.toLowerCase())
   );
   return arrayFiltrado;

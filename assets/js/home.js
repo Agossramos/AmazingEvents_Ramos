@@ -5,33 +5,22 @@ const contenedor = document.getElementById("contenedor");
 const contenedorCheck = document.getElementById("checks");
 const input = document.querySelector("#input");
 
-// input.addEventListener("input", superFiltro);
+input.addEventListener("input", superFiltro);
 
-// contenedorCheck.addEventListener("change", superFiltro);
+contenedorCheck.addEventListener("change", superFiltro);
 
-addCardsEvents(data);
-createCheckBoxs(data);
+addCardsEvents(data.events);
 
-input.addEventListener("input", () => {
-  let primerFiltro = filterOfText(data, input.value);
-  // // let segundoFiltro = filterOfCategory(primerFiltro);
+createCheckBoxs(data.events);
+
+function superFiltro() {
+  let primerFiltro = filterOfText(data.events, input.value);
+  let segundoFiltro = filterOfCategory(primerFiltro);
   addCardsEvents(segundoFiltro);
-});
-
-contenedorCheck.addEventListener("change", () => {
-  //   let primerFiltro = filterOfText(data,input.value);
-  // // let segundoFiltro = filterOfCategory(primerFiltro);
-  //   addCardsEvents(segundoFiltro);
-});
-
-// function superFiltro() {
-//   let primerFiltro = filterOfText(data, input.value);
-//   let segundoFiltro = filterOfCategory(primerFiltro);
-//   addCardsEvents(segundoFiltro);
-// }
+}
 
 function createCheckBoxs(array) {
-  let arrayCountrys = array.events.map((event) => event.category);
+  let arrayCountrys = array.map((event) => event.category);
   let setCountry = new Set(arrayCountrys);
   let arrayChecks = Array.from(setCountry);
   let checkboxs = "";
@@ -44,13 +33,13 @@ function createCheckBoxs(array) {
   contenedorCheck.innerHTML = checkboxs;
 }
 
-function addCardsEvents(array) {
-  if (array.length == 0) {
+function addCardsEvents(events) {
+  if (events.length == 0) {
     contenedor.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
     return;
   }
-  let cards = "";
-  array.events.forEach(event => {
+  let cards = '';
+  events.forEach(event => {
     cards += `<div class="card text-bg-light mb-3" style="max-width: 20rem;">
                 <img src="${event.image}" class="card-img-top mh-70 object-fit-cover" alt="${event.name}">
                 <div class="card-body text-center">
@@ -64,27 +53,25 @@ function addCardsEvents(array) {
   contenedor.innerHTML = cards;
 }
 
-function filterOfText(array, text) {
-  let arrayFiltrado = array.events.filter((elemento) =>
+function filterOfText(events, text) {
+  let arrayFiltrado = events.filter((elemento) =>
     elemento.name.toLowerCase().includes(text.toLowerCase())
   );
   return arrayFiltrado;
 }
 
 function filterOfCategory(array) {
-  let checkboxes = document.querySelectorAll("input[type='checkbox']");
-  console.log(checkboxes);
-  let arrayChecks = Array.from(checkboxes);
+  let checkboxs = document.querySelectorAll("input[type='checkbox']");
+  // console.log(checkboxs);
+  let arrayChecks = Array.from(checkboxs);
   let arrayChecksChecked = arrayChecks.filter((check) => check.checked);
-  console.log(arrayChecksChecked);
-  let arrayChecksCheckedValues = arrayChecksChecked.map(
-    (checkChecked) => checkChecked.value
+  // console.log(arrayChecksChecked);
+  let arrayChecksCheckedValues = arrayChecksChecked.map((checkChecked) => checkChecked.value);
+  // console.log(arrayChecksCheckedValues);
+  let arrayFiltrado = array.filter((elemento) =>
+  arrayChecksCheckedValues.includes(elemento.category)
   );
-  console.log(arrayChecksCheckedValues);
-  let arrayFiltrado = array.events.filter((elemento) =>
-    arrayChecksCheckedValues.includes(elemento.category)
-  );
-  console.log(arrayFiltrado);
+  // console.log(arrayFiltrado);
   if (arrayChecksChecked.length > 0) {
     return arrayFiltrado;
   }

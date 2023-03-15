@@ -42,7 +42,7 @@ function createCheckBoxs(array) {
 }
 
 function addCardsEvents(events,date) {
-  if (array.length == 0) {
+  if (events.length == 0) {
     contenedor.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
     return;
   }
@@ -72,19 +72,15 @@ function filterOfText(events, text) {
 }
 
 function filterOfCategory(array) {
-  let checkboxes = document.querySelectorAll("input[type='checkbox']");
-  console.log(checkboxes);
-  let arrayChecks = Array.from(checkboxes);
+  let checkboxs = document.querySelectorAll("input[type='checkbox']");
+  let arrayChecks = Array.from(checkboxs);
   let arrayChecksChecked = arrayChecks.filter((check) => check.checked);
-  console.log(arrayChecksChecked);
   let arrayChecksCheckedValues = arrayChecksChecked.map(
     (checkChecked) => checkChecked.value
   );
-  console.log(arrayChecksCheckedValues);
-  let arrayFiltrado = array.events.filter((elemento) =>
+  let arrayFiltrado = array.filter((elemento) =>
     arrayChecksCheckedValues.includes(elemento.category)
   );
-  console.log(arrayFiltrado);
   if (arrayChecksChecked.length > 0) {
     return arrayFiltrado;
   }

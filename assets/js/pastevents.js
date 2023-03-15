@@ -43,14 +43,12 @@ function createCheckBoxs(array) {
 }
 
 function addCardsEvents(events,date) {
-  if (array.length == 0) {
+  if (events.length == 0) {
     contenedor.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
     return;
   }
-  let cards = "";
-  events.forEach((event) => {
-    // if (timeEvents(event,date)==true){
-    //   console.log("past");
+  let cards = '';
+  events.forEach(event => {
     if (event.date < date) {
               cards += `<div class="card text-bg-light mb-3" style="max-width: 20rem;">
                 <img src="${event.image}" class="card-img-top mh-70 object-fit-cover;
@@ -76,18 +74,14 @@ function filterOfText(events, text) {
 
 function filterOfCategory(array) {
   let checkboxes = document.querySelectorAll("input[type='checkbox']");
-  console.log(checkboxes);
   let arrayChecks = Array.from(checkboxes);
   let arrayChecksChecked = arrayChecks.filter((check) => check.checked);
-  console.log(arrayChecksChecked);
   let arrayChecksCheckedValues = arrayChecksChecked.map(
     (checkChecked) => checkChecked.value
   );
-  console.log(arrayChecksCheckedValues);
-  let arrayFiltrado = array.events.filter((elemento) =>
+  let arrayFiltrado = array.filter((elemento) =>
     arrayChecksCheckedValues.includes(elemento.category)
   );
-  console.log(arrayFiltrado);
   if (arrayChecksChecked.length > 0) {
     return arrayFiltrado;
   }

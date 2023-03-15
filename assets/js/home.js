@@ -10,7 +10,6 @@ input.addEventListener("input", superFiltro);
 contenedorCheck.addEventListener("change", superFiltro);
 
 addCardsEvents(data.events);
-
 createCheckBoxs(data.events);
 
 function superFiltro() {
@@ -62,16 +61,12 @@ function filterOfText(events, text) {
 
 function filterOfCategory(array) {
   let checkboxs = document.querySelectorAll("input[type='checkbox']");
-  // console.log(checkboxs);
   let arrayChecks = Array.from(checkboxs);
   let arrayChecksChecked = arrayChecks.filter((check) => check.checked);
-  // console.log(arrayChecksChecked);
   let arrayChecksCheckedValues = arrayChecksChecked.map((checkChecked) => checkChecked.value);
-  // console.log(arrayChecksCheckedValues);
   let arrayFiltrado = array.filter((elemento) =>
   arrayChecksCheckedValues.includes(elemento.category)
   );
-  // console.log(arrayFiltrado);
   if (arrayChecksChecked.length > 0) {
     return arrayFiltrado;
   }

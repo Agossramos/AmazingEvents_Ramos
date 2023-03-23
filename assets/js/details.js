@@ -3,15 +3,12 @@ let detailContainer = document.querySelector("#cardDetails");
 fetch("../assets/data/amazing.json")
   .then((response) => response.json())
   .then((data) => {
-    let eventsList = data.events;
     let queryString = location.search;
     let params = new URLSearchParams(queryString);
     let cardId = params.get("id");
     const card = data.events.find((card) => card._id == cardId);
-    createDetails(eventsList, detailContainer);
+    createDetails(card, detailContainer);
   });
-
-// createDetails(card, detailContainer);
 
 function createDetails(card, detailContainer) {
   let cards = "";

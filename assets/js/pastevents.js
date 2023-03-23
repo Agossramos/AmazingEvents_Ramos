@@ -1,4 +1,3 @@
-import data from "./amazing.js";
 
 const contenedor = document.getElementById("contenedor");
 const contenedorCheck = document.getElementById("checks");

@@ -7,9 +7,6 @@ const input = document.querySelector("#input");
 
 // contenedorCheck.addEventListener("change", superFiltro);
 
-// addCardsEvents(data.events,date);
-// createCheckBoxs(data.events);
-
 // function superFiltro() {
 //   let primerFiltro = filterOfText(data.events, input.value);
 //   let segundoFiltro = filterOfCategory(primerFiltro);

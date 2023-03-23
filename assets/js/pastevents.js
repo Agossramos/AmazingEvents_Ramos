@@ -2,20 +2,40 @@
 const contenedor = document.getElementById("contenedor");
 const contenedorCheck = document.getElementById("checks");
 const input = document.querySelector("#input");
-let date= data.currentDate;
 
-input.addEventListener("input", superFiltro);
+// input.addEventListener("input", superFiltro);
 
-contenedorCheck.addEventListener("change", superFiltro);
+// contenedorCheck.addEventListener("change", superFiltro);
 
-addCardsEvents(data.events, date);
-createCheckBoxs(data.events);
+// function superFiltro() {
+//   let primerFiltro = filterOfText(data.events, input.value);
+//   let segundoFiltro = filterOfCategory(primerFiltro);
+//   addCardsEvents(segundoFiltro, date);
+// }
 
-function superFiltro() {
-  let primerFiltro = filterOfText(data.events, input.value);
-  let segundoFiltro = filterOfCategory(primerFiltro);
-  addCardsEvents(segundoFiltro, date);
-}
+fetch("../assets/data/amazing.json")
+  .then((response) => response.json())
+  .then((data) => {
+    let eventsList = data.events;
+    let date= data.currentDate;
+    addCardsEvents(eventsList, date);
+  });
+
+  fetch("../assets/data/amazing.json")
+  .then((response) => response.json())
+  .then((data) => {
+    let checksList = data.events;
+    createCheckBoxs(checksList);
+  });
+
+  // fetch("../assets/data/amazing.json")
+  // .then((response) => response.json())
+  // .then((data) => {
+  //   let primerFiltro = filterOfText(data.events, input.value);
+  //   let segundoFiltro = filterOfCategory(primerFiltro);
+  //   // console.log(segundoFiltro);
+  //   addCardsEvents(segundoFiltro);
+  // });
 
 // function timeEvents(event,date){
 //       let time;
@@ -41,7 +61,7 @@ function createCheckBoxs(array) {
   contenedorCheck.innerHTML = checkboxs;
 }
 
-function addCardsEvents(events,date) {
+function addCardsEvents(events, date) {
   if (events.length == 0) {
     contenedor.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
     return;
@@ -64,25 +84,25 @@ function addCardsEvents(events,date) {
   contenedor.innerHTML = cards;
 }
 
-function filterOfText(events, text) {
-  let arrayFiltrado = events.filter((elemento) =>
-    elemento.name.toLowerCase().includes(text.toLowerCase())
-  );
-  return arrayFiltrado;
-}
+// function filterOfText(events, text) {
+//   let arrayFiltrado = events.filter((elemento) =>
+//     elemento.name.toLowerCase().includes(text.toLowerCase())
+//   );
+//   return arrayFiltrado;
+// }
 
-function filterOfCategory(array) {
-  let checkboxes = document.querySelectorAll("input[type='checkbox']");
-  let arrayChecks = Array.from(checkboxes);
-  let arrayChecksChecked = arrayChecks.filter((check) => check.checked);
-  let arrayChecksCheckedValues = arrayChecksChecked.map(
-    (checkChecked) => checkChecked.value
-  );
-  let arrayFiltrado = array.filter((elemento) =>
-    arrayChecksCheckedValues.includes(elemento.category)
-  );
-  if (arrayChecksChecked.length > 0) {
-    return arrayFiltrado;
-  }
-  return array;
-}
+// function filterOfCategory(array) {
+//   let checkboxes = document.querySelectorAll("input[type='checkbox']");
+//   let arrayChecks = Array.from(checkboxes);
+//   let arrayChecksChecked = arrayChecks.filter((check) => check.checked);
+//   let arrayChecksCheckedValues = arrayChecksChecked.map(
+//     (checkChecked) => checkChecked.value
+//   );
+//   let arrayFiltrado = array.filter((elemento) =>
+//     arrayChecksCheckedValues.includes(elemento.category)
+//   );
+//   if (arrayChecksChecked.length > 0) {
+//     return arrayFiltrado;
+//   }
+//   return array;
+// }

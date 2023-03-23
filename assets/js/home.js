@@ -18,6 +18,15 @@ fetch("../assets/data/amazing.json")
     createCheckBoxs(checksList);
   });
 
+  fetch("../assets/data/amazing.json")
+  .then((response) => response.json())
+  .then((data) => {
+    let primerFiltro = filterOfText(data.events, input.value);
+    let segundoFiltro = filterOfCategory(primerFiltro);
+    // console.log(segundoFiltro);
+    addCardsEvents(segundoFiltro);
+  });
+
 function addCardsEvents(events) {
   if (events.length == 0) {
     contenedor.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
@@ -48,14 +57,6 @@ function addCardsEvents(events) {
 //   addCardsEvents(segundoFiltro);
 // }
 
-fetch("../assets/data/amazing.json")
-  .then((response) => response.json())
-  .then((data) => {
-    let primerFiltro = filterOfText(data.events, input.value);
-    let segundoFiltro = filterOfCategory(primerFiltro);
-    console.log(segundoFiltro);
-    addCardsEvents(segundoFiltro);
-  });
 
 function createCheckBoxs(array) {
   let arrayCountrys = array.map((event) => event.category);

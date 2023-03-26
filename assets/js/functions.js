@@ -1,0 +1,114 @@
+const contenedor = document.getElementById("contenedor");
+const contenedorCheck = document.getElementById("checks");
+
+// Function cargar checks
+export function createCheckBoxs(array) {
+    let arrayCountrys = array.map((event) => event.category);
+    let setCountry = new Set(arrayCountrys);
+    let arrayChecks = Array.from(setCountry);
+    let checkboxs = "";
+    arrayChecks.forEach((category) => {
+      checkboxs += `<div class="form-check form-switch">
+           <input class="form-check-input" type="checkbox" role="switch" id="${category}" value="${category}">
+           <label class="form-check-label" for="${category}">${category}</label>
+         </div>`;
+    });
+    contenedorCheck.innerHTML = checkboxs;
+  }
+  
+
+// Function card todos los eventos
+export function addCardsEvents(events) {
+    if (events.length == 0) {
+      contenedor.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
+      return;
+    }
+    let cards = "";
+    events.forEach((event) => {
+      cards += `<div class="card text-bg-light mb-3" style="max-width: 20rem;">
+                  <img src="${event.image}" class="card-img-top mh-70 object-fit-cover" alt="${event.name}">
+                  <div class="card-body text-center">
+                    <h2 class="card-title"><strong>${event.name}</strong></h2>
+                    <p class="card-text">${event.description}</p>
+                    <p class="card-price"><strong>Price: </strong>${event.price}</p>
+                    <a href="./details.html?id=${event._id}" class="btn btn-primary" id="botoncards">Details</a>
+                  </div>
+              </div>`;
+    });
+    contenedor.innerHTML = cards;
+  }
+  
+ 
+
+// Function eventos pasados
+export function addCardsEventsPast(events, date) {
+    if (events.length == 0) {
+      contenedor.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
+      return;
+    }
+    let cards = "";
+    events.forEach((event) => {
+      if (event.date < date) {
+        cards += `<div class="card text-bg-light mb-3" style="max-width: 20rem;">
+                    <img src="${event.image}" class="card-img-top mh-70 object-fit-cover;
+                    object-fit: cover;" alt="${event.name}">
+                    <div class="card-body text-center">
+                      <h2 class="card-title"><strong>${event.name}</strong></h2>
+                      <p class="card-text">${event.description}</p>
+                      <p class="card-price"><strong>Price: </strong>${event.price}</p>
+                      <a href="./details.html?id=${event._id}" class="btn btn-primary" id="botoncards">Details</a>
+                    </div>
+                  </div>`;
+      }
+    });
+    contenedor.innerHTML = cards;
+  }
+
+// Function eventos futuros
+export function addCardsEventsUpComming(events, date) {
+    if (events.length == 0) {
+      contenedor.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
+      return;
+    }
+    let cards = "";
+    events.forEach((event) => {
+      if (event.date > date) {
+        cards += `<div class="card text-bg-light mb-3" style="max-width: 20rem;">
+                  <img src="${event.image}" class="card-img-top mh-70 object-fit-cover;
+                  object-fit: cover;" alt="${event.name}">
+                  <div class="card-body text-center">
+                  <h2 class="card-title"><strong>${event.name}</strong></h2>
+                  <p class="card-text">${event.description}</p>
+                  <p class="card-price"><strong>Price: </strong>${event.price}</p>
+                  <a href="./details.html?id=${event._id}" class="btn btn-primary" id="botoncards">Details</a>
+              </div>
+              </div>`;
+      }
+    });
+    contenedor.innerHTML = cards;
+  }
+//FILTROS
+
+export function filterOfText(events, text) {
+    let arrayFiltrado = events.filter((elemento) =>
+      elemento.name.toLowerCase().includes(text.toLowerCase())
+    );
+    return arrayFiltrado;
+  }
+  
+  export function filterOfCategory(array) {
+    let checkboxs = document.querySelectorAll("input[type='checkbox']");
+    let arrayChecks = Array.from(checkboxs);
+    let arrayChecksChecked = arrayChecks.filter((check) => check.checked);
+    let arrayChecksCheckedValues = arrayChecksChecked.map(
+      (checkChecked) => checkChecked.value
+    );
+    let arrayFiltrado = array.filter((elemento) =>
+      arrayChecksCheckedValues.includes(elemento.category)
+    );
+    if (arrayChecksChecked.length > 0) {
+      return arrayFiltrado;
+    }
+    return array;
+  }
+  

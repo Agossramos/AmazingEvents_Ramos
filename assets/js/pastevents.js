@@ -1,6 +1,6 @@
 import { addCardsEventsPast, createCheckBoxs, filterOfCategory, filterOfText } from "../js/functions.js";
 
-const contenedor = document.getElementById("contenedor");
+// const contenedor = document.getElementById("contenedor");
 const contenedorCheck = document.getElementById("checks");
 const input = document.querySelector("#input");
 

@@ -1,56 +1,61 @@
-const tbody1 = document.getElementById('tbody1')
+const tbody1 = document.getElementById("tbody1");
+const tbody2 = document.getElementById("tbody2");
+// const tbody3 = document.getElementById("tbody3");
 
-fetch("../assets/data/amazing.json")
-  .then((response) => response.json())
-  .then((data) => {
-    let eventsList = data.events;
-    createRow(tablaUno(eventsList), tbody1);  //genero la primera parte de la tabla
-    let categorys = sacarCategorys(eventsList); //genero la segunda parte de la tabla 
-    tablaDos(categorys); 
-  });
+async function getEvents() {
+  await fetch("../assets/data/amazing.json")
+    .then((response) => response.json())
+    .then((data) => {
+      let eventsList = data.events;
+      llenarTabla(tablaUno(eventsList), tbody1); //genero la primera parte de la tabla
+      let categorys = sacarCategorys(eventsList); //genero la segunda parte de la tabla
+      llenarTabla(tablaDos(eventsList, categorys), tbody2);
+      console.log(percentage(eventsList));
+    }).catch((err) => console.error(err));
+}getEvents();
 
 //saco los valores que van en la primera parte de la tabla
 function tablaUno(array){
-    // let animeViejo =  array.sort((a, b) => a.capacity - b.capacity)[0].name
-
+    let aMenorAsistencia = array.reduce((prev, current) => ((prev.assistence ? prev.assistence : prev.estimate) > (current.assistence ? current.assistence : current.estimate)) ? prev : current).name
+    let aMayorAsistencia = array.reduce((prev, current) => ((prev.assistence ? prev.assistence : prev.estimate) < (current.assistence ? current.assistence : current.estimate)) ? prev : current).name
     let mayorCapacidad = array.sort((a,b) => b.capacity - a.capacity)[0].name
-    let aMenosEpisodios = array.reduce((prev, current) => (prev.episodes < current.episodes) ? prev : current).name
-    let aMasEpisodios = array.reduce((prev, current) => (prev.episodes > current.episodes) ? prev : current).name
 
     let resultado = {
-        // animeMasViejo: animeViejo,
-        eventoMayorCapacidad: mayorCapacidad,
-        animeConMenosEpisodios: aMenosEpisodios,
-        animeConMasEpisodios: aMasEpisodios,
+        eventConMenorAsistencia: aMenorAsistencia,
+        eventConMayorAsistencia: aMayorAsistencia,
+        eventoMayorCapacidad: mayorCapacidad
     }
     return resultado
 }
-//saco la categoria
-function sacarCategorys(array){
-    return [...new Set((array.map(item => item.category).flat()).map(item => item.toLowerCase()))]
+
+// saco la categoria
+function sacarCategorys(array) {
+  return [...new Set((array.map(item => item.category).flat()).map(item => item.toLowerCase()))];
 }
 
-// function tablaDos( arrayAnimes, arrayGeneros ){
-//     let animesXgenero = arrayGeneros.forEach(genero => arrayAnimes.filter(anime => anime.genre[0].toLowerCase() == genero ))
-//     console.log(animesXgenero)
-// }
+function tablaDos(arrayEvents, arrayGeneros) {
+  let eventsXgenero = arrayGeneros.forEach((genero) =>
+    arrayEvents.filter((event) => event.category[0].toLowerCase() == genero));
+  console.log(eventsXgenero);
+}
 
-//creo la primeras filas
-function createRow(datos, container){
-    let tr = document.createElement("tr")
-    for (let clave in datos){
-        console.log(datos[clave])
-        let td = document.createElement("td")
-        td.innerText = datos[clave]
-        tr.appendChild(td)
-    }
-    container.appendChild(tr)
+
+function llenarTabla(datos, container) {
+  let tr = document.createElement("tr");
+  for (let clave in datos) {
+    console.log(datos[clave]);
+    let td = document.createElement("td");
+    td.innerText = datos[clave];
+    tr.appendChild(td);
+  }
+  container.appendChild(tr);
 }
 //saco el porcentaje de asistencia y estimated
-function percentageDeAssistance(array){
+function percentage(array){
     for (let indice in array){
-    let percentage = (array.assistance / array.capacity) * 100;
+    let arrayPercentage= ((array[indice].assistance / array[indice].capacity) * 100);
+    return arrayPercentage;
     }
-
+    
+    console.log(arrayPercentage);
 }
-

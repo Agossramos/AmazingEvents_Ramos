@@ -1,4 +1,4 @@
-import { primeraTabla, segundaTabla, sacarCategorys, llenarTabla, terceraTabla} from "../js/functions.js";
+import { firstTabla, secondTabla, extractCategorys, llenarTabla, thirdTabla} from "../js/functions.js";
 
 const tbody1 = document.getElementById("tbody1");
 const tbody2 = document.getElementById("tbody2");
@@ -9,7 +9,7 @@ async function getEvents() {
     .then((response) => response.json())
     .then((data) => {
       let eventsList = data.events;
-      llenarTabla(primeraTabla(eventsList), tbody1); //genero la primera tabla
+      llenarTabla(firstTabla(eventsList), tbody1); //genero la primera tabla
     }).catch((err) => console.error(err));
 }getEvents();
 
@@ -18,8 +18,8 @@ async function getEvents2() {
       .then((response) => response.json())
       .then((data) => {
         let eventsList = data.events;
-        let categorys = sacarCategorys(eventsList); //saco las categorias sin repetir del json
-        llenarTabla(segundaTabla(eventsList, categorys), tbody2); //genero la segunda tabla
+        let categorys = extractCategorys(eventsList); //saco las categorias sin repetir del json
+        llenarTabla(secondTabla(eventsList, categorys), tbody2); //genero la segunda tabla
       }).catch((err) => console.error(err));
   }getEvents2();
 
@@ -28,8 +28,8 @@ async function getEvents2() {
       .then((response) => response.json())
       .then((data) => {
         let eventsList = data.events;
-        let categorys = sacarCategorys(eventsList); //saco las categorias sin repetir del json
-        llenarTabla(terceraTabla(eventsList, categorys), tbody3); //genero la tercer tabla
+        let categorys = extractCategorys(eventsList); //saco las categorias sin repetir del json
+        llenarTabla(thirdTabla(eventsList, categorys), tbody3); //genero la tercer tabla
       }).catch((err) => console.error(err));
   }getEvents3();
 

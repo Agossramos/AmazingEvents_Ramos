@@ -134,7 +134,7 @@ export function createDetails(card, detailContainer) {
 //FUNCTION PAGINA STATS
 
 //genero todos los datos para la primera tabla
-export function primeraTabla(array) {
+export function firstTabla(array) {
   let aMenorAsistencia = array.reduce((prev, current) =>
     (prev.assistence ? prev.assistence : prev.estimate) > (current.assistence ? current.assistence : current.estimate) ? prev : current).name;
   let aMayorAsistencia = array.reduce((prev, current) =>
@@ -162,7 +162,7 @@ export function llenarTabla(datos, container) {
 }
 
 //saco las categorias
-export function sacarCategorys(array) {
+export function extractCategorys(array) {
   return [
     ...new Set(
       array
@@ -174,9 +174,9 @@ export function sacarCategorys(array) {
 }
 
 //genero todos los datos para la segunda tabla
-export function segundaTabla(arrayEvents, arrayGeneros) {
+export function secondTabla(arrayEvents, arrayGeneros) {
   let eventsXcategory = arrayGeneros.forEach((category) =>
-    arrayEvents.filter((event) => event.category[0].toLowerCase() == category));
+    arrayEvents.filter((event) => event.category[0] === category));
   revenuesUpComming(eventsXcategory); //falta el parametro del nombre de la categoria );
   return eventsXcategory;
 }
@@ -202,9 +202,9 @@ export function revenuesUpComming (array, category){
 }
 
 //genero todos los datos para la tercera tabla
-export function terceraTabla(arrayEvents, arrayGeneros) {
+export function thirdTabla(arrayEvents, arrayGeneros) {
   let eventsXcategory = arrayGeneros.forEach((category) =>
-    arrayEvents.filter((event) => event.category[0].toLowerCase() == category));
+    arrayEvents.filter((event) => event.category[0] === category));
   revenuesPast(eventsXcategory); //falta el parametro del nombre de la categoria );
   return eventsXcategory;
 }

@@ -55,6 +55,11 @@ main {
 }
 .table {
   border-color: black;
+  margin: 10px 0px;
+}
+.encabezadoTable{
+  background-color:darksalmon;
+  text-align: center;
 }
 footer {
   display: flex;
@@ -102,40 +107,36 @@ fieldset {
   align-items: center;
 }
 
+
 /* MEDIA QUERYS */
 @media screen and (max-width: 2561px) {
   header {
     width: 96vw;
-    font-size:xx-large;
+    font-size:x-large;
   }
   .titulo {
     margin: -20px 20% 20px 10%;
     font-size: 4vh;
   }
-  /* .container-fluid {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-  } */
   main {
     background-color: rgb(253, 203, 242);
     width: 95vw;
     min-height: 900px;
-    font-size:xx-large;
+    font-size:x-large;
   }
   #search{
     height:70px;
   }
   #buttonsearch{
     padding: 10px 20px;
-    font-size: xx-large;
+    font-size: x-large;
     background-color:darksalmon;
     color:black;
     border-color: darksalmon;
   }
   footer {
     margin: 2% 3%;
-    font-size:xx-large;
+    font-size:x-large;
   }
   fieldset {
     margin: 20px 40%;
@@ -160,7 +161,7 @@ fieldset {
   }
   #botoncards{
     padding: 15px 25px;
-    font-size:xx-large;
+    font-size:x-large;
     background-color:darksalmon;
     color:black;
     border-color: darksalmon;
@@ -173,7 +174,7 @@ fieldset {
 @media screen and (max-width: 1441px) {
   header {
     width: 96vw;
-    font-size: x-large;
+    font-size:large;
   }
   .titulo {
     margin: -20px 20% 20px 10%;
@@ -183,7 +184,7 @@ fieldset {
     background-color: rgb(253, 203, 242);
     width: 95vw;
     min-height: 900px;
-    font-size: x-large;
+    font-size: large;
   }
   #search{
     height:50px;
@@ -203,7 +204,7 @@ fieldset {
     height: 70px;
   }
   .cohort {
-    font-size: x-large;
+    font-size: large;
   }
   fieldset {
     margin: 20px 40%;

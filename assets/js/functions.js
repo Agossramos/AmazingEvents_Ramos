@@ -86,6 +86,8 @@ export function addCardsEventsUpComming(events, date) {
 }
 
 //FILTROS
+
+//Filtrado por search
 export function filterOfText(events, text) {
   let arrayFiltrado = events.filter((elemento) =>
     elemento.name.toLowerCase().includes(text.toLowerCase())
@@ -93,6 +95,7 @@ export function filterOfText(events, text) {
   return arrayFiltrado;
 }
 
+//Filtrado por los checkboxs
 export function filterOfCategory(array) {
   let checkboxs = document.querySelectorAll("input[type='checkbox']");
   let arrayChecks = Array.from(checkboxs);
@@ -109,9 +112,28 @@ export function filterOfCategory(array) {
   return array;
 }
 
-//Function pagina stats
+//FUNCTION PAGINA DETAILS
 
-//saco los valores que van en la primera tabla
+//lleno la cards details
+export function createDetails(card, detailContainer) {
+  let cards = "";
+  cards += `<img id="imgDetails" src="${card.image}" class="img-fluid rounded-start" alt="${card.category}">
+                  <class="card-body">
+                    <h3 class="card-title"><strong>${card.name}</strong></h3>
+                    <p class="card-text">${card.date}</p>
+                    <p class="card-text">${card.description}</p>
+                    <p class="card-text"><strong>CATEGORY:</strong> ${card.category}</p>
+                    <p class="card-text"><strong>PLACE: </strong>${card.place}</p>
+                    <p class="card-text"><strong>CAPACITY: </strong>${card.capacity}</p>
+                    <p class="card-text"><strong>ASSISTENCE/ESTIMATE: </strong>${(card.assistence ? card.assistence : card.estimate)}</p>
+                    <p class="card-text"><strong>PRICE: </strong>${card.price}</p>   
+              </div>`;
+  detailContainer.innerHTML = cards;
+}
+
+//FUNCTION PAGINA STATS
+
+//genero todos los datos para la primera tabla
 export function primeraTabla(array) {
   let aMenorAsistencia = array.reduce((prev, current) =>
     (prev.assistence ? prev.assistence : prev.estimate) > (current.assistence ? current.assistence : current.estimate) ? prev : current).name;
@@ -127,7 +149,7 @@ export function primeraTabla(array) {
   return resultado;
 }
 
-//lleno cada tabla
+//lleno la tabla
 export function llenarTabla(datos, container) {
   let tr = document.createElement("tr");
   for (let indice in datos) {
@@ -139,7 +161,7 @@ export function llenarTabla(datos, container) {
   container.appendChild(tr);
 }
 
-// saco las categorias
+//saco las categorias
 export function sacarCategorys(array) {
   return [
     ...new Set(
@@ -151,7 +173,7 @@ export function sacarCategorys(array) {
   ];
 }
 
-//saco datos segunda tabla
+//genero todos los datos para la segunda tabla
 export function segundaTabla(arrayEvents, arrayGeneros) {
   let eventsXcategory = arrayGeneros.forEach((category) =>
     arrayEvents.filter((event) => event.category[0].toLowerCase() == category));
@@ -179,6 +201,7 @@ export function revenuesUpComming (array, category){
   }
 }
 
+//genero todos los datos para la tercera tabla
 export function terceraTabla(arrayEvents, arrayGeneros) {
   let eventsXcategory = arrayGeneros.forEach((category) =>
     arrayEvents.filter((event) => event.category[0].toLowerCase() == category));
@@ -186,6 +209,7 @@ export function terceraTabla(arrayEvents, arrayGeneros) {
   return eventsXcategory;
 }
 
+//realizo la revenues del past events 
 export function revenuesPast (array, category){
   for (let indice in array){
     if (array[indice] == category){

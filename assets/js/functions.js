@@ -117,34 +117,112 @@ export function filterOfCategory(array) {
 //lleno la cards details
 export function createDetails(card, detailContainer) {
   let cards = "";
-  cards += `<img id="imgDetails" src="${card.image}" class="img-fluid rounded-start" alt="${card.category}">
+  cards += `<img id="imgDetails" src="${
+    card.image
+  }" class="img-fluid rounded-start" alt="${card.category}">
                   <class="card-body">
                     <h3 class="card-title"><strong>${card.name}</strong></h3>
                     <p class="card-text">${card.date}</p>
                     <p class="card-text">${card.description}</p>
-                    <p class="card-text"><strong>CATEGORY:</strong> ${card.category}</p>
-                    <p class="card-text"><strong>PLACE: </strong>${card.place}</p>
-                    <p class="card-text"><strong>CAPACITY: </strong>${card.capacity}</p>
-                    <p class="card-text"><strong>ASSISTENCE/ESTIMATE: </strong>${(card.assistence ? card.assistence : card.estimate)}</p>
-                    <p class="card-text"><strong>PRICE: </strong>${card.price}</p>   
+                    <p class="card-text"><strong>CATEGORY:</strong> ${
+                      card.category
+                    }</p>
+                    <p class="card-text"><strong>PLACE: </strong>${
+                      card.place
+                    }</p>
+                    <p class="card-text"><strong>CAPACITY: </strong>${
+                      card.capacity
+                    }</p>
+                    <p class="card-text"><strong>ASSISTENCE/ESTIMATE: </strong>${
+                      card.assistence ? card.assistence : card.estimate
+                    }</p>
+                    <p class="card-text"><strong>PRICE: </strong>${
+                      card.price
+                    }</p>   
               </div>`;
   detailContainer.innerHTML = cards;
 }
 
 //FUNCTION PAGINA STATS
 
+//Función obtener el evento con mayor porcentage de asistencia
+export function eventWithMostAssistance(array) {
+  let eventWithHighestAttendance = "";
+  let highestAttendancePercentage = -1;
+  array.forEach((event) => {
+    const percentage =
+      ((event.assistance ? event.assistance : event.estimate) /
+        event.capacity) *
+      100;
+    if (percentage > highestAttendancePercentage) {
+      highestAttendancePercentage = percentage;
+      eventWithHighestAttendance = event.name;
+    }
+  });
+  return eventWithHighestAttendance;
+}
+
+//Función que obtiene el nombre del evento con menor asistencia
+export function eventWithLowestAssistance(array) {
+  let eventsWithLowestAttendance = "";
+  let lowestAttendancePercentage = 101;
+  array.forEach((event) => {
+    const percentage =
+      ((event.assistance ? event.assistance : event.estimate) /
+        event.capacity) *
+      100;
+    if (percentage < lowestAttendancePercentage) {
+      lowestAttendancePercentage = percentage;
+      eventsWithLowestAttendance = event.name;
+    }
+  });
+  return eventsWithLowestAttendance;
+}
+
+//Funcion calcular las ganancias totales
+export function eventsRevenues(events) {
+  let revenues = 0;
+  events.forEach((event) => {
+    const revenue =
+      event.price * (event.assistance ? event.assistance : event.estimate);
+    revenues += revenue;
+  });
+  return revenues;
+}
+
+//Funcion calcular el porcentaje de asistencia
+export function calculateAttendancePercentage(events) {
+  let totalAssistance = events.reduce((total, event) => {
+    return total + (event.assistance ? event.assistance : event.estimate);
+  }, 0);
+  let capacity = events.reduce((cap, event) => {
+    return cap + event.capacity;
+  }, 0);
+  return ((totalAssistance / capacity) * 100).toFixed(2);
+}
+
+//función para crear las filas con las columnas correspondientes en la tabla que le indiquemos y nos muestre
+//las ganancias y el porcentaje de asistencia por categoría.
+export function createTableRow(category,revenues,attendancePercentage,container) {
+  const tr = document.createElement("tr");
+  tr.innerHTML = `<td>${category}</td>
+                  <td class="text-end">$${revenues}</td>
+                  <td class="text-end">${attendancePercentage}%</td>`;
+  container.appendChild(tr);
+}
+
 //genero todos los datos para la primera tabla
 export function firstTabla(array) {
-  let aMenorAsistencia = array.reduce((prev, current) =>
-    (prev.assistence ? prev.assistence : prev.estimate) > (current.assistence ? current.assistence : current.estimate) ? prev : current).name;
-  let aMayorAsistencia = array.reduce((prev, current) =>
-    (prev.assistence ? prev.assistence : prev.estimate) < (current.assistence ? current.assistence : current.estimate) ? prev : current).name;
-  let mayorCapacidad = array.sort((a, b) => b.capacity - a.capacity)[0].name;
+  let aMayorAsistencia = eventWithMostAssistance(array);
+  let aMenorAsistencia = eventWithLowestAssistance(array);
+  let mayorCapacidad = array.reduce((prevEvent, actualEvent) => {
+    return (prevEvent.capacity > actualEvent.capacity) ? prevEvent : actualEvent;
+}).name;
 
   let resultado = {
-    eventConMenorAsistencia: aMenorAsistencia,
     eventConMayorAsistencia: aMayorAsistencia,
-    eventoMayorCapacidad: mayorCapacidad,
+    eventConMenorAsistencia: aMenorAsistencia,
+    eventMayorCapacidad: mayorCapacidad,
   };
   return resultado;
 }
@@ -153,7 +231,6 @@ export function firstTabla(array) {
 export function llenarTabla(datos, container) {
   let tr = document.createElement("tr");
   for (let indice in datos) {
-    // console.log(datos[indice]);
     let td = document.createElement("td");
     td.innerText = datos[indice];
     tr.appendChild(td);
@@ -173,48 +250,21 @@ export function extractCategorys(array) {
   ];
 }
 
-//genero todos los datos para la segunda tabla
-export function secondTabla(arrayEvents, arrayGeneros) {
-  let eventsXcategory = arrayGeneros.forEach((category) =>
-    arrayEvents.filter((event) => event.category[0] === category));
-  revenuesUpComming(eventsXcategory); //falta el parametro del nombre de la categoria );
-  return eventsXcategory;
-}
+//genero todos los datos para la segunda tabla y tercera
+export function groupByCategory(array, container) {
+  const groupedCategories = {};
+  array.forEach((event) => {
+      if (!groupedCategories[event.category]) {
+      groupedCategories[event.category] = [];
+      }
+      groupedCategories[event.category].push(event);
+  });
 
-//saco el porcentaje de asistencia y estimated
-// export function percentage(array){
-//   for (let indice in array){
-//   let arrayPercentage= ((array[indice].assistance / array[indice].capacity) * 100);
-//   return arrayPercentage;
-//   }
-
-//   console.log(arrayPercentage);
-// }
-
-//realizo la revenues del up comming 
-export function revenuesUpComming (array, category){
-  for (let indice in array){
-    if (array[indice] == category){
-      return revenues = ((array[indice].price) * (array[indice].estimate))
-    }
-    console.log(revenues)
+  for (const category in groupedCategories) {
+      let events = groupedCategories[category];
+      let revenues = eventsRevenues(events);
+      let attendancePct = calculateAttendancePercentage(events);
+      createTableRow(category, revenues, attendancePct, container);
   }
 }
 
-//genero todos los datos para la tercera tabla
-export function thirdTabla(arrayEvents, arrayGeneros) {
-  let eventsXcategory = arrayGeneros.forEach((category) =>
-    arrayEvents.filter((event) => event.category[0] === category));
-  revenuesPast(eventsXcategory); //falta el parametro del nombre de la categoria );
-  return eventsXcategory;
-}
-
-//realizo la revenues del past events 
-export function revenuesPast (array, category){
-  for (let indice in array){
-    if (array[indice] == category){
-      return revenues = ((array[indice].price) * (array[indice].assistence))
-    }
-    console.log(revenues)
-  }
-}

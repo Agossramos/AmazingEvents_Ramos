@@ -19,12 +19,12 @@ export function createCheckBoxs(array) {
 // Function card todos los eventos
 export function addCardsEvents(events) {
   if (events.length == 0) {
-    contenedor.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
+    contenedor.innerHTML = `<h4 class="display-1 fw-bolder">No matches</h4>`;
     return;
   }
   let cards = "";
   events.forEach((event) => {
-    cards += `<div class="card text-bg-light mb-3" style="max-width: 20rem;">
+    cards += `<div class="card text-bg-light" style="max-width: 20rem;">
                   <img src="${event.image}" class="card-img-top mh-70 object-fit-cover" alt="${event.name}">
                   <div class="card-body text-center">
                     <h2 class="card-title"><strong>${event.name}</strong></h2>
@@ -40,7 +40,7 @@ export function addCardsEvents(events) {
 // Function eventos pasados
 export function addCardsEventsPast(events, date) {
   if (events.length == 0) {
-    contenedor.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
+    contenedor.innerHTML = `<h4 class="display-1 fw-bolder">No matches</h4>`;
     return;
   }
   let cards = "";
@@ -64,7 +64,7 @@ export function addCardsEventsPast(events, date) {
 // Function eventos futuros
 export function addCardsEventsUpComming(events, date) {
   if (events.length == 0) {
-    contenedor.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
+    contenedor.innerHTML = `<h4 class="display-1 fw-bolder">No matches</h4>`;
     return;
   }
   let cards = "";
@@ -117,9 +117,7 @@ export function filterOfCategory(array) {
 //lleno la cards details
 export function createDetails(card, detailContainer) {
   let cards = "";
-  cards += `<img id="imgDetails" src="${
-    card.image
-  }" class="img-fluid rounded-start" alt="${card.category}">
+  cards += `<img id="imgDetails" src="${card.image}" class="img-fluid rounded-start" alt="${card.category}">
                   <class="card-body">
                     <h3 class="card-title"><strong>${card.name}</strong></h3>
                     <p class="card-text">${card.date}</p>
@@ -133,9 +131,7 @@ export function createDetails(card, detailContainer) {
                     <p class="card-text"><strong>CAPACITY: </strong>${
                       card.capacity
                     }</p>
-                    <p class="card-text"><strong>ASSISTENCE/ESTIMATE: </strong>${
-                      card.assistence ? card.assistence : card.estimate
-                    }</p>
+                    <p> <strong>${card.assistance ? "ASSISTANCE: " : "ESTIMATE: "}</strong>${card.assistance ? card.assistance : card.estimate}</p>
                     <p class="card-text"><strong>PRICE: </strong>${
                       card.price
                     }</p>   

@@ -197,8 +197,7 @@ export function calculateAttendancePercentage(events) {
   return ((totalAssistance / capacity) * 100).toFixed(2);
 }
 
-//función para crear las filas con las columnas correspondientes en la tabla que le indiquemos y nos muestre
-//las ganancias y el porcentaje de asistencia por categoría.
+//función crea las filas y columnas en la tabla 
 export function createTableRow(category,revenues,attendancePercentage,container) {
   const tr = document.createElement("tr");
   tr.innerHTML = `<td>${category}</td>
@@ -224,7 +223,7 @@ export function firstTabla(array) {
 }
 
 //lleno la tabla
-export function llenarTabla(datos, container) {
+export function completeTable(datos, container) {
   let tr = document.createElement("tr");
   for (let indice in datos) {
     let td = document.createElement("td");

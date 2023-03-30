@@ -34,9 +34,9 @@ main {
   align-items: center;
   gap: 20px;
 }
-.categorysearch {
+/* .categorysearch {
   display: block;
-}
+} */
 .logo {
   width: 80%;
   height: 80%;
@@ -63,10 +63,8 @@ main {
 }
 footer {
   display: flex;
-  align-content: flex-start;
-  align-items: center;
-  justify-content: space-between;
   margin: 2% 8%; 
+  /* padding: 5px 80px; */
 }
 .diva {
   display: flex;
@@ -74,14 +72,16 @@ footer {
   padding: 2%;
 }
 .redes {
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
+}
+.leyenda{
+  font-size:x-small;
 }
 .cohort {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  font-size:x-small;
   padding: 2%;
+  text-align: center;
 }
 form {
   margin: 10px 5%;
@@ -135,7 +135,9 @@ fieldset {
   }
   footer {
     margin: 2% 3%;
-    font-size:x-large;
+
+    display: flex;
+    justify-content: space-between;
   }
   fieldset {
     margin: 20px 40%;
@@ -169,6 +171,18 @@ fieldset {
     width: 100px;
     height: 100px;
   }
+  .leyenda{
+    font-size:xxx-large;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    margin: 50px;
+  }
+  .cohort {
+    font-size:xxx-large;
+    padding: 2%;
+    text-align:end;
+  }
 }
 @media screen and (max-width: 1441px) {
   header {
@@ -197,13 +211,12 @@ fieldset {
   }
   footer {
     margin: 2% 3%;
+    display: flex;
+    justify-content: space-between;
   }
   .redes {
     width: 70px;
     height: 70px;
-  }
-  .cohort {
-    font-size: large;
   }
   fieldset {
     margin: 20px 40%;
@@ -233,6 +246,17 @@ fieldset {
     color:black;
     border-color: darksalmon;
   }
+  .leyenda{
+    font-size:larger;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+  }
+  .cohort {
+    font-size:larger;
+    margin: 20px;
+    text-align:end;
+  }
 }
 @media screen and (max-width: 1025px) {
   header {
@@ -255,10 +279,12 @@ fieldset {
   }
   footer {
     margin: 2% 3%;
+    display: flex;
+    justify-content: space-between;
   }
   .redes {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
   fieldset {
     margin: 20px 35%;
@@ -278,6 +304,17 @@ fieldset {
     background-color:darksalmon;
     color:black;
     border-color: darksalmon;
+  }
+  .leyenda{
+    font-size:larger;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+  }
+  .cohort {
+    font-size:larger;
+    padding: 2%;
+    text-align:end;
   }
 }
 @media screen and (max-width: 769px) {
@@ -309,6 +346,8 @@ fieldset {
   }
   footer {
     margin: 2% 3%;
+    display: flex;
+    justify-content: space-between;
   }
   fieldset {
     margin: 20px 30%;
@@ -320,6 +359,12 @@ fieldset {
     background-color:darksalmon;
     color:black;
     border-color: darksalmon;
+  }
+  .leyenda{
+    font-size:medium;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
   }
 }
 
@@ -350,6 +395,8 @@ fieldset {
   }
   footer {
     margin: 2% 4%;
+    display: block;
+    justify-content: space-between;
   }
   fieldset {
     margin: 20px 15%;
@@ -370,6 +417,24 @@ fieldset {
     color:black;
     border-color: darksalmon;
   }
+  .leyenda{
+    font-size:small;
+    text-align: center;
+    align-items: center;
+    margin:10px;
+  }
+  .cohort {
+    font-size:medium;
+    /* padding: 2%; */
+    text-align:center;
+    margin:10px;
+  }
+  .diva {
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+  }
+  
 }
 @media screen and (max-width: 321px) {
   header {
@@ -395,13 +460,23 @@ fieldset {
     border-color: darksalmon;
   }
   #botoncards{
-    display: flex;
-    justify-content: flex-end;
-    align-items:flex-end;
     padding: 5px 10px;
     font-size: medium;
     background-color:darksalmon;
     color:black;
     border-color: darksalmon;
+  }
+  .leyenda{
+    font-size:x-small;
+  }
+  .cohort {
+    font-size:medium;
+    padding: 2%;
+    text-align: center;
+  }
+  .footer {
+    display: block;
+    margin: 2% 8%; 
+    padding: 5px 80px;
   }
 }

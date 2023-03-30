@@ -30,7 +30,7 @@ export function addCardsEvents(events) {
                     <h2 class="card-title"><strong>${event.name}</strong></h2>
                     <p class="card-text">${event.description}</p>
                     <p class="card-price"><strong>Price: </strong>${event.price}</p>
-                    <a href="./details.html?id=${event._id}" class="btn btn-primary" id="botoncards">Details</a>
+                    <a href="./details.html?id=${event._id}" class="btn btn-primary " id="botoncards">Details</a>
                   </div>
               </div>`;
   });

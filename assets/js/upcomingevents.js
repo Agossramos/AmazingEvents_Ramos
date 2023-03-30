@@ -4,6 +4,13 @@ import { addCardsEventsUpComming, createCheckBoxs, filterOfCategory, filterOfTex
 const contenedorCheck = document.getElementById("checks");
 const input = document.querySelector("#input");
 
+fetch("../assets/data/amazing.json")
+    .then((response) => response.json())
+    .then((data) => {
+      let checksList = data.events;
+    createCheckBoxs(checksList);
+  });
+
 async function getEvents() {
   await fetch("../assets/data/amazing.json")
     .then((response) => response.json())
@@ -11,8 +18,6 @@ async function getEvents() {
       let eventsList = data.events;
       let date = data.currentDate;
       addCardsEventsUpComming(eventsList, date);
-      let checksList = data.events;
-      createCheckBoxs(checksList);
       let primerFiltro = filterOfText(eventsList, input.value);
       let segundoFiltro = filterOfCategory(primerFiltro);
       addCardsEventsUpComming(segundoFiltro, date);
